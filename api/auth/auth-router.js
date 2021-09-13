@@ -39,7 +39,7 @@ router.post('/register', checkPayload, checkUsernameFree, async (req, res) => {
       res.status(201).json(user)
     }
   catch(err){
-      next(err)
+      res.status(500).json({message: "Server error"})
     }    
 
 });
@@ -80,7 +80,7 @@ router.post('/login', checkPayload, checkUsernameExists, (req, res) => {
           });
         }
         else{
-          next({status: 401, message: 'invalid credentials'})
+          res.status(401).json({ message: 'invalid credentials' })
         }
       })
 
