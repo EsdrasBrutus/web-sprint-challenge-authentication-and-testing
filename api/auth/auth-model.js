@@ -1,7 +1,7 @@
 const db = require('../../data/dbConfig');
 
 function findBy(filter) {
-    return db("users as u").where(filter).first();
+    return db("users as u").where(filter);
 }
   
 function findById(id) {
