@@ -36,7 +36,7 @@ router.post('/register', checkPayload, checkUsernameFree, async (req, res) => {
       const newUser = await User.add({username: req.body.username, password: hash})
       const user = await User.findBy({ username: req.body.username})
       console.log(user)
-      res.status(201).json(user)
+      res.status(201).json(user[0])
     }
   catch(err){
       res.status(500).json({message: "Server error"})
